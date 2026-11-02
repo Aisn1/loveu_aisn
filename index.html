@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Heart</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #060208;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="heartCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById('heartCanvas');
+        const ctx = canvas.getContext('2d');
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // Kalp animasyon mantığı
+        const phrases = [
+            "I love you", "Seni seviyorum", "Te amo", "Je t'aime",
+            "Ich liebe dich", "Ti amo", "Eu te amo", "Я тебя люблю",
+            "사랑해", "愛してる", "我爱你", "मैं तुमसे प्यार करता हूँ",
+            "Σ' αγαπώ", "Ik hou van jou", "Jag älskar dig", "Kocham cię",
+            "ฉันรักเธอ", "Anh yêu em", "Aku cinta kamu", "Я тебе кохаю"
+        ];
+
+        function draw() {
+            ctx.fillStyle = '#060208';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#e60026';
+            ctx.font = 'bold 20px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText("Seni Seviyorum kuzen <3", canvas.width / 2, canvas.height / 2);
+        }
+        setInterval(draw, 33);
+    </script>
+</body>
+</html>
